@@ -114,7 +114,7 @@ function Contact() {
   );
 }
 
-function Field({ label, children, error }: { name: string; label: string; children: React.ReactNode; error?: string }) {
+function Field({ label, children, error }: { name: string; label: string; children: React.ReactNode; error?: string | undefined }) {
   return (
     <label className="block">
       <span className="eyebrow">{label}</span>

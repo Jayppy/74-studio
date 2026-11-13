@@ -21,7 +21,7 @@ function Admin() {
 
   useEffect(() => {
     supabase.auth.getUser().then(async ({ data }) => {
-      if (!data.user) return setIsAdmin(false);
+      if (!data.user) { setIsAdmin(false); return; }
       const { data: ok } = await supabase.rpc("has_role", { _user_id: data.user.id, _role: "admin" });
       setIsAdmin(!!ok);
     });
@@ -43,7 +43,7 @@ function Admin() {
   }
 
   async function save(publish: boolean) {
-    if (!editing?.title?.trim()) return toast.error("Add a title");
+    if (!editing?.title?.trim()) { toast.error("Add a title"); return; }
     const row = {
       title: editing.title.trim(),
       slug: slugify(editing.slug || editing.title),
@@ -55,7 +55,7 @@ function Admin() {
       updated_at: new Date().toISOString(),
     };
     const res = editing.id ? await supabase.from("posts").update(row).eq("id", editing.id) : await supabase.from("posts").insert(row);
-    if (res.error) return toast.error(res.error.message);
+    if (res.error) { toast.error(res.error.message); return; }
     toast.success(publish ? "Article published" : "Draft saved");
     setEditing(null);
     qc.invalidateQueries({ queryKey: ["admin-posts"] });
@@ -65,7 +65,7 @@ function Admin() {
   async function remove(id: string) {
     if (!confirm("Delete this article permanently?")) return;
     const { error } = await supabase.from("posts").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     qc.invalidateQueries({ queryKey: ["admin-posts"] });
   }
 
