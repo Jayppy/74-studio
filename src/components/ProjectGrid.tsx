@@ -17,6 +17,7 @@ export function ProjectGrid({ projects, columns = 3 }: { projects: Project[]; co
                 alt={`${p.title} — ${CATEGORY_LABELS[p.category]} by 74 STUDIO`}
                 loading="lazy"
                 referrerPolicy="no-referrer"
+                onError={(e) => { e.currentTarget.style.visibility = "hidden"; }}
                 className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
               />
               <span className="absolute inset-0 flex items-center justify-center">

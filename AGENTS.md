@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Portfolio items are static data in src/lib/portfolio.ts (YouTube + Drive embeds), not DB rows — content changes rarely and needs no admin.
+- Blog posts live in the posts table; public reads go through server fns with the publishable client, writes are admin-only via RLS + has_role.
+- First account to sign up becomes admin (DB trigger); later sign-ups get no role.
