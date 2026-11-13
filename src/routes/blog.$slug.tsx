@@ -24,6 +24,7 @@ export const Route = createFileRoute("/blog/$slug")({
       description: loaderData.excerpt || undefined,
       ...(cover ? { image: cover } : {}),
       ...(loaderData.published_at ? { datePublished: loaderData.published_at } : {}),
+      dateModified: loaderData.updated_at,
       mainEntityOfPage: canonicalUrl(path),
       author: { "@id": `${SITE_URL}/#organization` },
       publisher: { "@id": `${SITE_URL}/#organization` },

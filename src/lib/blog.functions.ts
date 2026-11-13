@@ -32,7 +32,7 @@ export const getPublishedPost = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     const { data: post, error } = await publicClient()
       .from("posts")
-      .select("id, slug, title, excerpt, content, cover_url, published_at")
+      .select("id, slug, title, excerpt, content, cover_url, published_at, updated_at")
       .eq("slug", data.slug)
       .eq("published", true)
       .maybeSingle();
