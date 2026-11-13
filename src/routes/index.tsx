@@ -15,7 +15,8 @@ const services = [
   { n: "01", t: "AI Music Videos", d: "AI-assisted cinematic visuals and conceptual storytelling.", to: "/music-videos" },
   { n: "02", t: "2D Animation", d: "Custom illustrated animation synced to your music.", to: "/music-videos" },
   { n: "03", t: "3D Music Videos", d: "Cinematic 3D worlds and character-driven stories.", to: "/music-videos" },
-  { n: "04", t: "Short-Form Video Editing", d: "Reels, Shorts and teasers cut to captivate.", to: "/video-editing" },
+  { n: "04", t: "Short-Form Video Editing", d: "Reels, TikToks, Shorts and teasers cut to captivate.", to: "/video-editing" },
+  { n: "05", t: "UGC & Product Ads", d: "Creator-style ads and product demos for brands.", to: "/ugc-ads" },
 ] as const;
 
 function Home() {
@@ -23,7 +24,7 @@ function Home() {
   return (
     <>
       <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden">
-        <img src={hero} alt="Sculptural chrome forms in a dark, misty studio" width={1920} height={1088} className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70" />
+        <img src={hero} alt="Sculptural chrome forms in a dark, misty studio" width={1920} height={1088} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70" />
         <div className="bg-fade absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 pb-20">
           <p className="eyebrow">We turn sound into something you can see.</p>
@@ -31,7 +32,7 @@ function Home() {
             <span className="text-chrome">Your music.<br />Our visuals.</span>
           </h1>
           <p className="mt-8 max-w-xl text-lg text-muted-foreground">
-            74 STUDIO is an independent creative studio producing cinematic music videos, animated visuals, and digital content for artists who want their music to stand out.
+            74 STUDIO is an independent creative studio producing cinematic music videos, visualizers, animated visuals, and short-form video content for independent artists, musicians, producers and brands who want their music to stand out.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/portfolio" className="btn-chrome">Explore our work</Link>
