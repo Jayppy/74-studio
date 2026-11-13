@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "@/assets/74-studio-logo.png.asset.json";
+import logo from "@/assets/74-studio-logo.webp";
 import { ClosingCta, PageHero } from "@/components/SiteChrome";
 import { pageHead } from "@/lib/site";
 
@@ -34,7 +34,7 @@ function About() {
       </section>
       <section className="border-t border-border bg-card">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2">
-          <img src={logo.url} alt="74 STUDIO chrome emblem with metallic portrait" width={1920} height={640} loading="lazy" decoding="async" className="w-full" />
+          <img src={logo} alt="74 STUDIO chrome emblem with metallic portrait" width={1200} height={400} loading="lazy" decoding="async" className="w-full" />
           <div>
             <p className="eyebrow">Founder / Creative Director</p>
             <h2 className="mt-3 text-4xl font-bold uppercase">John Peter</h2>

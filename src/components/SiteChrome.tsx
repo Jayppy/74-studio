@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/74-studio-logo.png.asset.json";
+import logo from "@/assets/74-studio-logo.webp";
 import { NAV, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
 export function SiteHeader() {
@@ -10,7 +10,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5">
         <Link to="/" aria-label="74 STUDIO home" className="shrink-0">
-          <img src={logo.url} alt="74 STUDIO logo" width={1920} height={640} decoding="async" className="h-9 w-auto" />
+          <img src={logo} alt="74 STUDIO logo" width={1200} height={400} decoding="async" className="h-11 w-auto md:h-12" />
         </Link>
         <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
           {NAV.map((n) => (
@@ -47,7 +47,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={logo.url} alt="74 STUDIO logo" width={1920} height={640} className="h-10 w-auto" loading="lazy" decoding="async" />
+          <img src={logo} alt="74 STUDIO logo" width={1200} height={400} className="h-12 w-auto" loading="lazy" decoding="async" />
           <p className="mt-5 text-sm text-muted-foreground">
             An independent creative studio producing music videos, animation, and edited content for artists and brands worldwide.
           </p>
