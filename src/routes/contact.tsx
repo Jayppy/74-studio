@@ -43,7 +43,17 @@ function Contact() {
     }
     setErrors({});
     setBusy(true);
-    const { error } = await supabase.from("inquiries").insert({ ...parsed.data, music_link: parsed.data.music_link || null });
+    const { error } = await supabase.from("inquiries").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      service: parsed.data.service,
+      description: parsed.data.description,
+      project_name: parsed.data.project_name || null,
+      deadline: parsed.data.deadline || null,
+      runtime: parsed.data.runtime || null,
+      music_link: parsed.data.music_link || null,
+      references_text: parsed.data.references_text || null,
+    });
     setBusy(false);
     if (error) {
       toast.error("Something went wrong sending your inquiry. Please try again or email us directly.");
