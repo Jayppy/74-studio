@@ -6,7 +6,8 @@ import { PROJECTS } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
-  head: () => pageHead("74 Studio | Music Videos & Creative Production", "74 STUDIO is an independent creative studio producing cinematic music videos, animated visuals, and digital content for artists."),
+  staticData: { sitemap: true },
+  head: () => pageHead("74 Studio | Music Videos, Visualizers & Video Editing", "74 Studio creates cinematic music videos, AI music videos, visualizers and short-form video content for independent artists, musicians and brands.", "/"),
   component: Home,
 });
 

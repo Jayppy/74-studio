@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getPublishedPost } from "@/lib/blog.functions";
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ params }) => {
     const post = await getPublishedPost({ data: { slug: params.slug } });
     if (!post) throw notFound();

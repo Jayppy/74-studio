@@ -5,7 +5,8 @@ import { byCategory, DRIVE_FOLDERS } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/ugc-ads")({
-  head: () => pageHead("UGC, Product & Real Estate Ads | 74 Studio", "Scroll-stopping UGC ads, product demos, DTC and real estate ad videos built for Meta, TikTok and YouTube."),
+  staticData: { sitemap: true },
+  head: () => pageHead("UGC, Product & Real Estate Ad Videos | 74 Studio", "UGC ads, product demos, app and SaaS walkthroughs and real estate promo videos for brands, edited for Meta, TikTok and YouTube.", "/ugc-ads"),
   component: Ugc,
 });
 

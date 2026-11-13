@@ -7,7 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { pageHead, SERVICES, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
-  head: () => pageHead("Start a Project | 74 Studio", "Tell 74 STUDIO about your music video, animation, editing or ad project and request a personalized quote."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Contact 74 Studio | Start Your Music Video Project", "Tell 74 Studio about your music video, animation, editing or ad project and request a personalized quote.", "/contact"),
   component: Contact,
 });
 

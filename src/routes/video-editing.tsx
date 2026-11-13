@@ -5,7 +5,8 @@ import { byCategory } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/video-editing")({
-  head: () => pageHead("Short-Form/Long-Form Video Editing | 74 Studio", "Professional short-form and long-form video editing for artists, creators and brands: Reels, Shorts, TikToks, teasers and promos."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Short-Form Video Editing for Reels, TikTok & Shorts | 74 Studio", "Short-form and long-form video editing for artists, creators and brands: Instagram Reels, TikTok, YouTube Shorts, release teasers and promo edits.", "/video-editing"),
   component: Editing,
 });
 

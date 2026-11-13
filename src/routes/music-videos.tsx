@@ -5,7 +5,8 @@ import { PROJECTS, embedUrl, type Category } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/music-videos")({
-  head: () => pageHead("Music Video Production | 74 Studio", "AI music videos, 2D animation, cinematic 3D music videos and lyric videos made for independent artists."),
+  staticData: { sitemap: true },
+  head: () => pageHead("3D, 2D & AI Music Video Production | 74 Studio", "Music video production for independent artists: cinematic 3D music videos, 2D animated music videos, AI music videos, visualizers and lyric videos.", "/music-videos"),
   component: MusicVideos,
 });
 

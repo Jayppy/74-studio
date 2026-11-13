@@ -6,7 +6,8 @@ import { CATEGORY_LABELS, PROJECTS, type Category } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/portfolio")({
-  head: () => pageHead("Creative Portfolio | 74 Studio", "A collection of music videos, 3D animation, edits and ads produced at 74 STUDIO."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Portfolio: Music Videos, 3D Animation & Edits | 74 Studio", "Watch 3D music videos, visualizers, animated visuals, video edits and ad work produced by 74 Studio.", "/portfolio"),
   component: Portfolio,
 });
 

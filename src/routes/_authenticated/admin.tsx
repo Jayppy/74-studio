@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/_authenticated/admin")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Studio admin | 74 Studio" }, { name: "description", content: "Manage blog articles and project inquiries." }, { property: "og:title", content: "Studio admin" }, { property: "og:description", content: "Manage blog articles." }, { name: "robots", content: "noindex" }] }),
   component: Admin,
 });

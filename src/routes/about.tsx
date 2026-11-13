@@ -4,7 +4,8 @@ import { ClosingCta, PageHero } from "@/components/SiteChrome";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
-  head: () => pageHead("About 74 Studio | Creative Studio", "Meet 74 STUDIO, an independent creative studio led by John Peter, turning music and artistic identity into visual experiences."),
+  staticData: { sitemap: true },
+  head: () => pageHead("About 74 Studio | Independent Music Video Studio", "Meet 74 Studio, an independent creative studio led by John Peter, turning music and artistic identity into music videos and visual experiences.", "/about"),
   component: About,
 });
 

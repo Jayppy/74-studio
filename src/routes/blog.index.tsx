@@ -7,7 +7,8 @@ import { pageHead } from "@/lib/site";
 const postsQuery = queryOptions({ queryKey: ["posts"], queryFn: () => listPublishedPosts() });
 
 export const Route = createFileRoute("/blog/")({
-  head: () => pageHead("Blog | 74 Studio", "Notes on music videos, animation, editing and visual storytelling from 74 STUDIO."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Blog: Music Video & Editing Insights | 74 Studio", "Articles on music videos, animation, video editing and visual storytelling from 74 Studio.", "/blog"),
   loader: ({ context }) => context.queryClient.ensureQueryData(postsQuery),
   component: Blog,
 });

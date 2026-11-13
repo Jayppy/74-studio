@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/auth")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Studio sign in | 74 Studio" }, { name: "description", content: "Admin sign in for 74 STUDIO." }, { property: "og:title", content: "Studio sign in" }, { property: "og:description", content: "Admin sign in for 74 STUDIO." }, { name: "robots", content: "noindex" }] }),
   component: Auth,
 });
