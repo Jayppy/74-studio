@@ -54,13 +54,7 @@ function Contact() {
     toast.success("Inquiry received. We'll be in touch.");
   }
 
-  const F = ({ name, label, children }: { name: string; label: string; children: React.ReactNode }) => (
-    <label className="block">
-      <span className="eyebrow">{label}</span>
-      {children}
-      {errors[name] && <span className="mt-1 block text-sm text-destructive">{errors[name]}</span>}
-    </label>
-  );
+  const F = (props: { name: string; label: string; children: React.ReactNode }) => Field({ ...props, error: errors[props.name] });
 
   return (
     <>
@@ -107,5 +101,15 @@ function Contact() {
         </aside>
       </section>
     </>
+  );
+}
+
+function Field({ label, children, error }: { name: string; label: string; children: React.ReactNode; error?: string }) {
+  return (
+    <label className="block">
+      <span className="eyebrow">{label}</span>
+      {children}
+      {error && <span className="mt-1 block text-sm text-destructive">{error}</span>}
+    </label>
   );
 }
