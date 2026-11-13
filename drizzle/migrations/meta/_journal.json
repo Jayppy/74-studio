@@ -8,6 +8,13 @@
       "when": 1794591168908,
       "tag": "0000_migration",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794613756853,
+      "tag": "0001_drop_public_read_covers_policy",
+      "breakpoints": true
     }
   ]
 }
