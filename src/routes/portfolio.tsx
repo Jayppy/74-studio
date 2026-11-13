@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ClosingCta, PageHero } from "@/components/SiteChrome";
@@ -6,7 +6,8 @@ import { CATEGORY_LABELS, PROJECTS, type Category } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/portfolio")({
-  head: () => pageHead("Creative Portfolio | 74 Studio", "A collection of music videos, 3D animation, edits and ads produced at 74 STUDIO."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Portfolio: Music Videos, 3D Animation & Edits | 74 Studio", "Watch 3D music videos, visualizers, animated visuals, video edits and ad work produced by 74 Studio.", "/portfolio"),
   component: Portfolio,
 });
 
@@ -19,6 +20,12 @@ function Portfolio() {
     <>
       <PageHero eyebrow="Portfolio" title="Selected works">
         A collection of visuals, stories, and creative experiments produced at 74 STUDIO.
+        <p className="mt-4 text-base">
+          Browse our <Link to="/music-videos" className="text-foreground underline underline-offset-4">3D, 2D and AI music videos</Link>,{" "}
+          <Link to="/video-editing" className="text-foreground underline underline-offset-4">short-form video edits</Link> and{" "}
+          <Link to="/ugc-ads" className="text-foreground underline underline-offset-4">UGC and product ads</Link>. More videos live on our{" "}
+          <a href="https://youtube.com/@prodby74" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4">YouTube channel</a>.
+        </p>
       </PageHero>
       <section className="mx-auto max-w-7xl px-5 pb-24">
         <div className="mb-12 flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">

@@ -32,3 +32,5 @@ use the editor.
 - Portfolio items are static data in src/lib/portfolio.ts (YouTube + Drive embeds), not DB rows — content changes rarely and needs no admin.
 - Blog posts live in the posts table; public reads go through server fns with the publishable client, writes are admin-only via RLS + has_role.
 - First account to sign up becomes admin (DB trigger); later sign-ups get no role.
+- Every public route sets head via pageHead(title, description, path) from src/lib/site.ts, which emits an absolute canonical + og:url on SITE_URL — one place controls the preferred domain.
+- Every route declares staticData.sitemap; /sitemap.xml is derived from the router (src/lib/sitemap.ts) plus published blog posts, so new pages need only that flag.

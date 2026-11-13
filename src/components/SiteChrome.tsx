@@ -10,7 +10,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5">
         <Link to="/" aria-label="74 STUDIO home" className="shrink-0">
-          <img src={logo.url} alt="74 STUDIO logo" className="h-9 w-auto" />
+          <img src={logo.url} alt="74 STUDIO logo" width={1920} height={640} decoding="async" className="h-9 w-auto" />
         </Link>
         <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
           {NAV.map((n) => (
@@ -23,13 +23,13 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <Link to="/contact" className="btn-chrome hidden sm:inline-flex">Start a project</Link>
-          <button type="button" className="xl:hidden" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
+          <button type="button" className="xl:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>
             {open ? <X /> : <Menu />}
           </button>
         </div>
       </div>
       {open && (
-        <nav className="border-t border-border bg-background px-5 py-4 xl:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-border bg-background px-5 py-4 xl:hidden" aria-label="Mobile">
           {NAV.map((n) => (
             <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block py-3 font-display text-lg uppercase tracking-wider">
               {n.label}
@@ -47,7 +47,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={logo.url} alt="74 STUDIO logo" className="h-10 w-auto" loading="lazy" />
+          <img src={logo.url} alt="74 STUDIO logo" width={1920} height={640} className="h-10 w-auto" loading="lazy" decoding="async" />
           <p className="mt-5 text-sm text-muted-foreground">
             An independent creative studio producing music videos, animation, and edited content for artists and brands worldwide.
           </p>
@@ -73,7 +73,7 @@ export function SiteFooter() {
           <p className="eyebrow">Connect</p>
           <ul className="mt-4 space-y-2 text-sm">
             <li><a href={`mailto:${STUDIO_EMAIL}`} className="text-foreground hover:text-chrome">{STUDIO_EMAIL}</a></li>
-            {SOCIALS.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground">{s.label}</a></li>)}
+            {SOCIALS.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noopener noreferrer me" className="text-muted-foreground hover:text-foreground">{s.label}</a></li>)}
           </ul>
         </div>
       </div>
@@ -90,8 +90,11 @@ export function SiteFooter() {
 export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: React.ReactNode; children?: React.ReactNode }) {
   return (
     <section className="mx-auto max-w-7xl px-5 pb-16 pt-20 md:pt-28">
-      <p className="eyebrow">{eyebrow}</p>
-      <h1 className="mt-5 text-5xl font-bold uppercase leading-[0.92] md:text-8xl"><span className="text-chrome">{title}</span></h1>
+      {/* The eyebrow is part of the H1 so the page's main heading names the service in plain words. */}
+      <h1>
+        <span className="eyebrow block">{eyebrow}</span>
+        <span className="mt-5 block text-5xl font-bold uppercase leading-[0.92] md:text-8xl"><span className="text-chrome">{title}</span></span>
+      </h1>
       {children && <div className="mt-8 max-w-2xl text-lg text-muted-foreground">{children}</div>}
     </section>
   );

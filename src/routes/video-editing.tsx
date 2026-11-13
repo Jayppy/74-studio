@@ -5,7 +5,8 @@ import { byCategory } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/video-editing")({
-  head: () => pageHead("Short-Form/Long-Form Video Editing | 74 Studio", "Professional short-form and long-form video editing for artists, creators and brands: Reels, Shorts, TikToks, teasers and promos."),
+  staticData: { sitemap: true },
+  head: () => pageHead("Short-Form Video Editing for Reels, TikTok & Shorts | 74 Studio", "Short-form and long-form video editing for artists, creators and brands: Instagram Reels, TikTok, YouTube Shorts, release teasers and promo edits.", "/video-editing"),
   component: Editing,
 });
 
@@ -26,7 +27,7 @@ function Editing() {
   return (
     <>
       <PageHero eyebrow="Short-form video editing · Social content production" title={<>Create.<br />Cut.<br />Captivate.</>}>
-        <p>Professional short-form video editing for artists, creators, and brands that want their content to stand out.</p>
+        <p>Professional short-form video editing for artists, creators, and brands that want their content to stand out on Instagram Reels, TikTok and YouTube Shorts.</p>
         <p className="mt-4">From music release teasers to engaging Reels and Shorts, we transform raw footage into polished, compelling content.</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <a href="#editing-work" className="btn-chrome">Explore editing work</a>

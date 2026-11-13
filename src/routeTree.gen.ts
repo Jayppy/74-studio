@@ -16,6 +16,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MusicVideosRouteImport } from './routes/music-videos'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UgcAdsRouteImport } from './routes/ugc-ads'
 import { Route as VideoEditingRouteImport } from './routes/video-editing'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -56,6 +57,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UgcAdsRoute = UgcAdsRouteImport.update({
   id: '/ugc-ads',
   path: '/ugc-ads',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
     | '/admin'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
     | '/admin'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
     | '/_authenticated/admin'
@@ -174,6 +186,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   MusicVideosRoute: typeof MusicVideosRoute
   PortfolioRoute: typeof PortfolioRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UgcAdsRoute: typeof UgcAdsRoute
   VideoEditingRoute: typeof VideoEditingRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -229,6 +242,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ugc-ads': {
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   MusicVideosRoute: MusicVideosRoute,
   PortfolioRoute: PortfolioRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UgcAdsRoute: UgcAdsRoute,
   VideoEditingRoute: VideoEditingRoute,
   BlogSlugRoute: BlogSlugRoute,

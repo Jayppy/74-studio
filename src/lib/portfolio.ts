@@ -79,3 +79,13 @@ export const embedUrl = (p: Project) =>
     : `https://drive.google.com/file/d/${p.videoId}/preview`;
 
 export const byCategory = (c: Category) => PROJECTS.filter((p) => p.category === c);
+
+/** Service page that describes each portfolio category, used to link projects to their service. */
+export const SERVICE_ROUTE: Record<Category, "/music-videos" | "/video-editing" | "/ugc-ads"> = {
+  AI: "/music-videos",
+  "2D": "/music-videos",
+  "3D": "/music-videos",
+  Lyric: "/music-videos",
+  Editing: "/video-editing",
+  UGC: "/ugc-ads",
+};

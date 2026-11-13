@@ -4,7 +4,8 @@ import { ClosingCta, PageHero } from "@/components/SiteChrome";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
-  head: () => pageHead("About 74 Studio | Creative Studio", "Meet 74 STUDIO, an independent creative studio led by John Peter, turning music and artistic identity into visual experiences."),
+  staticData: { sitemap: true },
+  head: () => pageHead("About 74 Studio | Independent Music Video Studio", "Meet 74 Studio, an independent creative studio led by John Peter, turning music and artistic identity into music videos and visual experiences.", "/about"),
   component: About,
 });
 
@@ -33,7 +34,7 @@ function About() {
       </section>
       <section className="border-t border-border bg-card">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2">
-          <img src={logo.url} alt="74 STUDIO chrome emblem with metallic portrait" loading="lazy" className="w-full" />
+          <img src={logo.url} alt="74 STUDIO chrome emblem with metallic portrait" width={1920} height={640} loading="lazy" decoding="async" className="w-full" />
           <div>
             <p className="eyebrow">Founder / Creative Director</p>
             <h2 className="mt-3 text-4xl font-bold uppercase">John Peter</h2>
