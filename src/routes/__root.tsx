@@ -15,7 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/74-studio-logo.png.asset.json";
+import logo from "@/assets/74-studio-logo.webp";
 import { SITE_NAME, SITE_URL, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
 // Sitewide structured data: only facts shown on the site (name, URL, logo, email, social profiles).
@@ -27,7 +27,7 @@ const ORG_JSON_LD = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      logo: `${SITE_URL}${logo.url}`,
+      logo: `${SITE_URL}${logo}`,
       email: STUDIO_EMAIL,
       founder: { "@type": "Person", name: "John Peter" },
       sameAs: SOCIALS.map((s) => s.href),

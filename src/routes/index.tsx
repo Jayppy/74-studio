@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-chrome.jpg";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ClosingCta } from "@/components/SiteChrome";
-import { PROJECTS } from "@/lib/portfolio";
+import { homeSelectedWorks } from "@/lib/portfolio";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -20,7 +20,7 @@ const services = [
 ] as const;
 
 function Home() {
-  const featured = PROJECTS.filter((p) => p.source === "youtube").slice(0, 6);
+  const featured = homeSelectedWorks();
   return (
     <>
       <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden">

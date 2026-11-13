@@ -1,3 +1,5 @@
+import nothingLastForeverThumb from "@/assets/nothing-last-forever-thumb.jpg";
+
 export type Category = "AI" | "2D" | "3D" | "Lyric" | "Editing" | "UGC";
 
 export const CATEGORY_LABELS: Record<Category, string> = {
@@ -18,6 +20,8 @@ export type Project = {
   videoId: string;
   concept?: boolean;
   vertical?: boolean;
+  /** Custom cover when the video's own thumbnail is blank. */
+  thumb?: string;
 };
 
 const yt = (videoId: string, title: string, client = "74 STUDIO"): Project => ({
@@ -26,6 +30,26 @@ const yt = (videoId: string, title: string, client = "74 STUDIO"): Project => ({
 const dr = (videoId: string, title: string, category: Category, concept = true): Project => ({
   id: `dr-${videoId}`, title, client: concept ? "Concept project" : "74 STUDIO", category, source: "drive", videoId, concept,
 });
+
+function MUSIC_VIDEOS_DRIVE(): Project[] {
+  return [
+    { ...dr("1XGjGPO92HIOL_bnPKGRCrip3kq2-ElmD", "Nothing Last Forever", "2D", false), thumb: nothingLastForeverThumb },
+    dr("16AMVTNBU4MOrNhCp3-2karmjWh-WzoYC", "Tunde Visual Track", "AI", false),
+    dr("1u7yhdTLstS-HKZTocKfYLh-iTJeA9Aqm", "I Am Music", "3D", false),
+    dr("18H1apHNPbkEZCAd2acqTwaeSOawY1sOT", "Animated Music Video", "2D", false),
+    dr("1igj3-mT2ehCfjM2_YdGU7VonmA2Mleio", "Night City Music Video", "AI", false),
+    dr("1mSuySSWMQ91hLKf46N4F5KE_yLTO95dh", "Animated Music Video II", "2D", false),
+  ];
+}
+
+/** Home page "Selected works": the Drive music videos, then YouTube 3D work. */
+export const homeSelectedWorks = () => {
+  const drive = MUSIC_VIDEOS_DRIVE().map((p) => p.id);
+  return [
+    ...PROJECTS.filter((p) => drive.includes(p.id)),
+    ...PROJECTS.filter((p) => p.source === "youtube").slice(0, 3),
+  ];
+};
 
 // YouTube @prodby74 — 3D work only; videos YouTube labels as altered/synthetic (AI) are excluded.
 export const PROJECTS: Project[] = [
@@ -39,6 +63,8 @@ export const PROJECTS: Project[] = [
   yt("fgimFUzczLo", "Music Video III"),
   yt("WtOfuXSLuOM", "Animated Music Visual"),
   yt("jfPsQLVv9ts", "Animated Music Visual II"),
+  // Google Drive "Music Video / Lyrics" folder — shown first in Selected works on the home page
+  ...MUSIC_VIDEOS_DRIVE(),
   // Google Drive portfolio folder
   dr("1_IGwbghujXYO-KIabCilEwL6dWjBonLV", "Action Animated Video", "2D"),
   dr("1NrKF0ApNXIAxS_rC_rfUVf3n7fDl1Z4j", "Arecia", "Editing"),
@@ -69,7 +95,7 @@ export const DRIVE_FOLDERS = [
 ];
 
 export const thumbUrl = (p: Project) =>
-  p.source === "youtube"
+  p.thumb ? p.thumb : p.source === "youtube"
     ? `https://i.ytimg.com/vi/${p.videoId}/hqdefault.jpg`
     : `https://drive.google.com/thumbnail?id=${p.videoId}&sz=w800`;
 

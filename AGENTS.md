@@ -34,3 +34,4 @@ use the editor.
 - First account to sign up becomes admin (DB trigger); later sign-ups get no role.
 - Every public route sets head via pageHead(title, description, path) from src/lib/site.ts, which emits an absolute canonical + og:url on SITE_URL — one place controls the preferred domain.
 - Every route declares staticData.sitemap; /sitemap.xml is derived from the router (src/lib/sitemap.ts) plus published blog posts, so new pages need only that flag.
+- Brand images (logo, covers) are bundled imports from src/assets, not lovable-assets CDN pointers — the site is also served from hosting outside Lovable, where /__l5e/ asset URLs 404.
