@@ -1,4 +1,6 @@
 import nothingLastForeverThumb from "@/assets/nothing-last-forever-thumb.jpg";
+import thirtySecondsDemoThumb from "@/assets/thirty-seconds-demo-thumb.jpg";
+import mixtrapThumb from "@/assets/mixtrap-thumb.jpg";
 
 export type Category = "AI" | "2D" | "3D" | "Lyric" | "Editing" | "UGC";
 
@@ -42,17 +44,48 @@ function MUSIC_VIDEOS_DRIVE(): Project[] {
   ];
 }
 
-/** Home page "Selected works": the Drive music videos, then YouTube 3D work. */
-export const homeSelectedWorks = () => {
-  const drive = MUSIC_VIDEOS_DRIVE().map((p) => p.id);
+// Google Drive "Selected works" folder (1yEpn_IpxCxHRYpG67fRNKqjdNf4kptFW), in the owner's chosen order.
+function SELECTED_WORKS_DRIVE(): Project[] {
   return [
-    ...PROJECTS.filter((p) => drive.includes(p.id)),
-    ...PROJECTS.filter((p) => p.source === "youtube").slice(0, 3),
+    dr("1H2ZflNjzIby1v8nmuAMYuNzqQG78NvNz", "Music Video Edit 2", "3D", false),
+    dr("1mILDFDWrzQKWi_mLFQItUHfPlIbEDDqz", "Music Video Edit 1", "AI", false),
+    dr("11WlXkJuE5jWgC_Ob1I38R3IubIBs2UP5", "Music Video 3", "AI", false),
+    dr("1bDLQPE8_Dlm1SXdQGKprmqS2G5oIETGl", "Music Video 2", "AI", false),
+    dr("1OD1-xp7GvFcey68WOLOjsY0b-dCJAM0T", "Music Video 1", "3D", false),
+    { ...dr("1v7X-57LmZgb98f_b4lk1PXEpuTK6FRIR", "Mixtrap Version 1", "3D", false), thumb: mixtrapThumb, vertical: true },
+    dr("1Qloh4FPUV4R_fAah3If17yjzHgr4PXpU", "Memories Together", "Editing", false),
+    dr("17bAe16n5l_cdXh8rUTxZIcrit9A7NPMA", "Lyric Video", "Lyric", false),
+    dr("1VweRgOeq-eH4xcBwuPYukKLopyIT0wms", "Gig Kimi", "2D", false),
+    dr("1DsWThcdNuALSirXTErgPByuWe6f1CmvX", "Delta Blues Outlaws", "3D", false),
+    dr("1V4vzxLwsDF3VQPfXY68WrZHDLhl6dtzQ", "Confetti", "Editing", false),
+    dr("1A18q9DrOZP6RTpr72VKYzvcHJhaeVhz2", "Chevy Song", "Editing", false),
+    dr("1fs1cjjHNoj0JpKIFVWTlG6gmJM_NhUtw", "Anime Music Video", "2D", false),
+    { ...dr("1GiA_H2fHkTdGUhUxBLkVFddclUAahqZF", "30 Seconds Demo", "Editing", false), thumb: thirtySecondsDemoThumb },
+    dr("1W9ScQJBCW7kWwLcjo_l7Qt2vR5Pri8YN", "3D Music Video", "3D", false),
   ];
+}
+
+/** Other videos from the same Drive folder: portfolio only, not on the home page. */
+function MORE_FROM_SELECTED_FOLDER(): Project[] {
+  return [
+    dr("15u5laDcjF0eI2hSVm5ObTWWWlOqQlaO6", "Music Video Edit", "Editing", false),
+    dr("1XZ4WEEweSdHHcuwwGo28S2mG8cuyQP6b", "Music Video", "Editing", false),
+    dr("1zSE2mJIyQbAcVI3qp7sKNwFuVO6aksu6", "Summer Sounds Anthem", "3D", false),
+    dr("1pktvyad0aWlyvGX220l8rSdmWloX6mtT", "You're the Spark", "AI", false),
+  ];
+}
+
+/** Home page "Selected works": exactly the videos from the Selected works Drive folder (max 15). */
+export const homeSelectedWorks = () => {
+  const ids = SELECTED_WORKS_DRIVE().map((p) => p.id);
+  return ids.map((id) => PROJECTS.find((p) => p.id === id)!).slice(0, 15);
 };
 
 // YouTube @prodby74 — 3D work only; videos YouTube labels as altered/synthetic (AI) are excluded.
 export const PROJECTS: Project[] = [
+  // Google Drive "Selected works" folder — newest work first
+  ...SELECTED_WORKS_DRIVE(),
+  ...MORE_FROM_SELECTED_FOLDER(),
   yt("GxrvbGWbQkA", "Cinematic Music Video"),
   yt("G0yyBi3nE68", "Cinematic Music Video II"),
   yt("R01jIXRq04Q", "Music Video", "Delta Blues Outlaws"),
@@ -63,7 +96,7 @@ export const PROJECTS: Project[] = [
   yt("fgimFUzczLo", "Music Video III"),
   yt("WtOfuXSLuOM", "Animated Music Visual"),
   yt("jfPsQLVv9ts", "Animated Music Visual II"),
-  // Google Drive "Music Video / Lyrics" folder — shown first in Selected works on the home page
+  // Google Drive "Music Video / Lyrics" folder
   ...MUSIC_VIDEOS_DRIVE(),
   // Google Drive portfolio folder
   dr("1_IGwbghujXYO-KIabCilEwL6dWjBonLV", "Action Animated Video", "2D"),
