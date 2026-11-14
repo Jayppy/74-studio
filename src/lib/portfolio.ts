@@ -81,11 +81,11 @@ export const homeSelectedWorks = () => {
   return ids.map((id) => PROJECTS.find((p) => p.id === id)!).slice(0, 15);
 };
 
-// YouTube @prodby74 — 3D work only; videos YouTube labels as altered/synthetic (AI) are excluded.
 export const PROJECTS: Project[] = [
   // Google Drive "Selected works" folder — newest work first
   ...SELECTED_WORKS_DRIVE(),
   ...MORE_FROM_SELECTED_FOLDER(),
+  // YouTube @prodby74 — 3D work only; videos YouTube labels as altered/synthetic (AI) are excluded.
   yt("GxrvbGWbQkA", "Cinematic Music Video"),
   yt("G0yyBi3nE68", "Cinematic Music Video II"),
   yt("R01jIXRq04Q", "Music Video", "Delta Blues Outlaws"),
