@@ -14,7 +14,7 @@ export function ProjectGrid({ projects, columns = 3 }: { projects: Project[]; co
           <li key={p.id}>
             <article className="group">
               <button type="button" onClick={() => setOpen(p)} aria-label={`Play ${p.title}`} className="block w-full text-left">
-                <div className="relative aspect-video overflow-hidden rounded-sm bg-muted">
+                <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-muted shadow-card transition group-hover:border-steel/60">
                   <img
                     src={thumbUrl(p)}
                     alt={`${p.title}, ${CATEGORY_LABELS[p.category]} video by 74 STUDIO`}
@@ -24,23 +24,23 @@ export function ProjectGrid({ projects, columns = 3 }: { projects: Project[]; co
                     decoding="async"
                     referrerPolicy="no-referrer"
                     onError={(e) => { e.currentTarget.style.visibility = "hidden"; }}
-                    className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                    className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
                   />
                   <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full border border-chrome/50 bg-background/60 backdrop-blur transition group-hover:scale-110">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full border border-chrome/60 bg-background/70 backdrop-blur transition group-hover:scale-110 group-hover:border-steel group-hover:bg-steel/25">
                       <Play className="h-5 w-5 fill-current text-chrome" />
                     </span>
                   </span>
                   {p.concept && (
-                    <span className="absolute left-3 top-3 rounded-sm bg-background/80 px-2 py-1 eyebrow">Concept</span>
+                    <span className="absolute left-3 top-3 rounded-sm bg-background/85 px-2 py-1 eyebrow !text-foreground">Concept</span>
                   )}
                 </div>
               </button>
               <div className="mt-4 flex items-baseline justify-between gap-4">
                 <h3 className="text-lg font-semibold">
-                  <button type="button" onClick={() => setOpen(p)} className="text-left hover:text-chrome">{p.title}</button>
+                  <button type="button" onClick={() => setOpen(p)} className="text-left transition hover:text-steel">{p.title}</button>
                 </h3>
-                <Link to={SERVICE_ROUTE[p.category]} className="eyebrow shrink-0 hover:text-foreground">
+                <Link to={SERVICE_ROUTE[p.category]} className="eyebrow shrink-0 rounded-sm bg-steel-soft px-2 py-1 !text-[0.68rem] hover:!text-foreground">
                   {CATEGORY_LABELS[p.category]}
                 </Link>
               </div>
@@ -67,7 +67,7 @@ export function ProjectGrid({ projects, columns = 3 }: { projects: Project[]; co
                 <DialogTitle className="mt-2 font-display text-2xl">{open.title}</DialogTitle>
                 <DialogDescription className="mt-1">{open.client}</DialogDescription>
                 {open.source === "youtube" && (
-                  <a href={`https://www.youtube.com/watch?v=${open.videoId}`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                  <a href={`https://www.youtube.com/watch?v=${open.videoId}`} target="_blank" rel="noopener noreferrer" className="link-steel mt-4 inline-block text-sm">
                     Watch on YouTube
                   </a>
                 )}

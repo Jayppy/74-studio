@@ -115,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "74 Studio | Music Videos & Creative Production" },
       { name: "description", content: "Independent creative studio producing music videos, animation and video editing." },
       { name: "author", content: "74 STUDIO" },
-      { name: "theme-color", content: "#101114" },
+      { name: "theme-color", content: "#141519" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:locale", content: "en_US" },

@@ -24,7 +24,7 @@ const schema = z.object({
   description: z.string().trim().min(10, "Tell us a bit more (at least 10 characters)").max(5000),
 });
 
-const field = "mt-2 w-full rounded-sm border border-input bg-card px-4 py-3 text-foreground outline-none transition focus:border-primary";
+const field = "mt-2 w-full rounded-md border border-input bg-background px-4 py-3 text-base text-foreground outline-none transition hover:border-foreground/50 focus:border-steel focus:ring-2 focus:ring-steel/30 aria-[invalid=true]:border-destructive";
 
 function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -74,13 +74,14 @@ function Contact() {
       </PageHero>
       <section className="mx-auto grid max-w-7xl gap-16 px-5 pb-28 lg:grid-cols-[1fr_320px]">
         {sent ? (
-          <div className="border border-border p-10">
+          <div className="rounded-lg border border-steel/50 bg-card p-10 shadow-card">
             <h2 className="text-3xl font-bold uppercase">Thank you.</h2>
             <p className="mt-4 text-muted-foreground">Your inquiry has been received. We review every project personally and will reply to the email you provided.</p>
             <button className="btn-line mt-8" onClick={() => setSent(false)}>Send another inquiry</button>
           </div>
         ) : (
-          <form onSubmit={onSubmit} noValidate className="grid gap-6 sm:grid-cols-2">
+          <form onSubmit={onSubmit} noValidate className="grid gap-6 rounded-lg border border-border bg-card p-6 shadow-card sm:grid-cols-2 md:p-10">
+            <p className="text-sm text-muted-foreground sm:col-span-2">Fields marked * are required. Every inquiry gets a personal reply with a tailored quote.</p>
             <F name="name" label="Name *"><input name="name" className={field} autoComplete="name" /></F>
             <F name="email" label="Email *"><input name="email" type="email" className={field} autoComplete="email" /></F>
             <F name="project_name" label="Artist / Project name"><input name="project_name" className={field} /></F>
@@ -98,15 +99,15 @@ function Contact() {
             <div className="sm:col-span-2"><button type="submit" disabled={busy} className="btn-chrome disabled:opacity-60">{busy ? "Sending…" : "Request a quote"}</button></div>
           </form>
         )}
-        <aside className="space-y-8">
+        <aside className="space-y-8 lg:pt-4">
           <div>
             <p className="eyebrow">Email</p>
-            <a href={`mailto:${STUDIO_EMAIL}`} className="mt-2 block font-display text-lg hover:text-chrome">{STUDIO_EMAIL}</a>
+            <a href={`mailto:${STUDIO_EMAIL}`} className="mt-2 block break-all font-display text-lg font-semibold text-steel hover:text-foreground">{STUDIO_EMAIL}</a>
           </div>
           <div>
             <p className="eyebrow">Find us</p>
             <ul className="mt-3 space-y-2">
-              {SOCIALS.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noreferrer" className="font-display uppercase hover:text-chrome">{s.label} ↗</a></li>)}
+              {SOCIALS.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noreferrer" className="font-display font-semibold uppercase text-foreground/85 transition hover:text-steel">{s.label} ↗</a></li>)}
             </ul>
           </div>
         </aside>
@@ -118,9 +119,9 @@ function Contact() {
 function Field({ label, children, error }: { name: string; label: string; children: React.ReactNode; error?: string | undefined }) {
   return (
     <label className="block">
-      <span className="eyebrow">{label}</span>
+      <span className="font-display text-sm font-semibold uppercase tracking-[0.08em] text-foreground">{label}</span>
       {children}
-      {error && <span className="mt-1 block text-sm text-destructive">{error}</span>}
+      {error && <span role="alert" className="mt-1.5 block text-sm font-medium text-destructive">{error}</span>}
     </label>
   );
 }
