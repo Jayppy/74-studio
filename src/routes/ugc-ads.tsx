@@ -42,7 +42,7 @@ function Ugc() {
           <ul className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
             {DRIVE_FOLDERS.map((f) => (
               <li key={f.id}>
-                <a href={`https://drive.google.com/drive/folders/${f.id}`} target="_blank" rel="noreferrer" className="flex justify-between border-b border-border py-4 font-display uppercase hover:text-chrome">
+                <a href={`https://drive.google.com/drive/folders/${f.id}`} target="_blank" rel="noreferrer" className="flex justify-between border-b border-border py-4 font-display uppercase hover:text-steel">
                   {f.title} <span aria-hidden>↗</span>
                 </a>
               </li>

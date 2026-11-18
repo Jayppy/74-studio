@@ -135,12 +135,12 @@ function Admin() {
           {inquiries.data?.map((q) => (
             <li key={q.id} className="border border-border p-6">
               <div className="flex flex-wrap justify-between gap-2">
-                <p className="font-display text-lg font-semibold">{q.name} · <a className="hover:text-chrome" href={`mailto:${q.email}`}>{q.email}</a></p>
+                <p className="font-display text-lg font-semibold">{q.name} · <a className="hover:text-steel" href={`mailto:${q.email}`}>{q.email}</a></p>
                 <p className="eyebrow">{new Date(q.created_at).toLocaleString()}</p>
               </div>
               <p className="eyebrow mt-2">{q.service}{q.project_name ? ` · ${q.project_name}` : ""}{q.deadline ? ` · due ${q.deadline}` : ""}{q.runtime ? ` · ${q.runtime}` : ""}</p>
               <p className="mt-4 whitespace-pre-line">{q.description}</p>
-              {q.music_link && <a href={q.music_link} target="_blank" rel="noreferrer" className="mt-3 block text-sm text-chrome underline">{q.music_link}</a>}
+              {q.music_link && <a href={q.music_link} target="_blank" rel="noreferrer" className="link-steel mt-3 block text-sm">{q.music_link}</a>}
               {q.references_text && <p className="mt-2 text-sm text-muted-foreground">{q.references_text}</p>}
             </li>
           ))}

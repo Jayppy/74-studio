@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/74-studio-logo.webp";
+import logo from "@/assets/74-studio-logo-dark.webp";
 import { NAV, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
 export function SiteHeader() {

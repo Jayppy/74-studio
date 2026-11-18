@@ -28,7 +28,7 @@ function Blog() {
                 {p.cover_url ? <img src={p.cover_url} alt={`Cover image for ${p.title}`} loading="lazy" decoding="async" className="aspect-video w-full rounded-sm object-cover" /> : <div className="aspect-video w-full rounded-sm bg-muted" />}
                 <div>
                   <p className="eyebrow">{p.published_at ? new Date(p.published_at).toLocaleDateString(undefined, { dateStyle: "long" }) : ""}</p>
-                  <h2 className="mt-3 text-3xl font-bold uppercase transition group-hover:text-chrome">{p.title}</h2>
+                  <h2 className="mt-3 text-3xl font-bold uppercase transition group-hover:text-steel">{p.title}</h2>
                   <p className="mt-3 text-muted-foreground">{p.excerpt}</p>
                 </div>
               </Link>

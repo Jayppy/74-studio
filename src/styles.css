@@ -79,50 +79,52 @@
 
 :root {
   --radius: 0.375rem;
-  /* Near-black with a faint cool tint, lifted enough that cards and borders read clearly. */
-  --background: oklch(0.17 0.008 260);
-  --foreground: oklch(0.97 0.003 260);
-  --card: oklch(0.215 0.01 260);
-  --card-foreground: oklch(0.97 0.003 260);
-  --popover: oklch(0.24 0.01 260);
-  --popover-foreground: oklch(0.97 0.003 260);
-  --primary: oklch(0.88 0.006 260);
-  --primary-foreground: oklch(0.17 0.008 260);
-  --secondary: oklch(0.24 0.01 260);
-  --secondary-foreground: oklch(0.97 0.003 260);
-  --muted: oklch(0.255 0.012 260);
-  /* Body copy on dark: kept around 7:1 contrast so long text stays easy to read. */
-  --muted-foreground: oklch(0.79 0.012 260);
-  --accent: oklch(0.27 0.03 245);
-  --accent-foreground: oklch(0.97 0.003 260);
-  --destructive: oklch(0.68 0.19 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.34 0.012 260);
-  --input: oklch(0.42 0.014 260);
-  --ring: oklch(0.76 0.12 240);
-  --chrome: oklch(0.95 0.004 260);
+  /* Bright silver studio palette: off-white ground, graphite ink, steel-blue accent. */
+  --background: oklch(0.968 0.002 250);
+  --foreground: oklch(0.24 0.015 255);
+  --card: oklch(0.945 0.005 250);
+  --card-foreground: oklch(0.24 0.015 255);
+  --popover: oklch(0.99 0.002 250);
+  --popover-foreground: oklch(0.24 0.015 255);
+  /* Primary is the steel blue from the logo: solid enough to carry white button text. */
+  --primary: oklch(0.54 0.11 249);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --secondary: oklch(0.93 0.008 250);
+  --secondary-foreground: oklch(0.28 0.02 255);
+  --muted: oklch(0.935 0.006 250);
+  /* Body copy on light: kept around 6:1 contrast so long text stays easy to read. */
+  --muted-foreground: oklch(0.44 0.02 255);
+  --accent: oklch(0.92 0.035 250);
+  --accent-foreground: oklch(0.30 0.06 250);
+  --destructive: oklch(0.52 0.19 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.855 0.008 250);
+  --input: oklch(0.80 0.012 250);
+  --ring: oklch(0.54 0.11 249);
+  /* "Chrome" now means brushed graphite: the dark metal the headlines and marks are made of. */
+  --chrome: oklch(0.30 0.02 255);
   /* Steel blue pulled from the logo's highlights: the one colour used for links, active nav, focus and labels. */
-  --steel: oklch(0.78 0.11 240);
-  --steel-soft: oklch(0.78 0.11 240 / 0.14);
-  --chart-1: oklch(0.78 0.11 240);
-  --chart-2: oklch(0.79 0.012 260);
-  --chart-3: oklch(0.6 0.01 260);
-  --chart-4: oklch(0.45 0.01 260);
-  --chart-5: oklch(0.34 0.01 260);
-  --sidebar: oklch(0.215 0.01 260);
-  --sidebar-foreground: oklch(0.97 0.003 260);
-  --sidebar-primary: oklch(0.88 0.006 260);
-  --sidebar-primary-foreground: oklch(0.17 0.008 260);
-  --sidebar-accent: oklch(0.27 0.03 245);
-  --sidebar-accent-foreground: oklch(0.97 0.003 260);
-  --sidebar-border: oklch(0.34 0.012 260);
-  --sidebar-ring: oklch(0.76 0.12 240);
-  /* Chrome text gradient with a brighter middle band, so headline letters never dip into the background. */
-  --gradient-chrome: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.9 0.006 260) 45%, oklch(0.74 0.02 250) 58%, oklch(0.95 0.004 260) 100%);
-  --gradient-button: linear-gradient(180deg, oklch(0.99 0.002 260) 0%, oklch(0.88 0.008 260) 55%, oklch(0.8 0.015 250) 100%);
-  --gradient-fade: linear-gradient(180deg, oklch(0.17 0.008 260 / 0.25) 0%, oklch(0.17 0.008 260 / 0.75) 55%, oklch(0.17 0.008 260) 100%);
-  --gradient-side: linear-gradient(90deg, oklch(0.17 0.008 260 / 0.7) 0%, oklch(0.17 0.008 260 / 0.15) 55%, transparent 100%);
-  --shadow-card: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 20px 40px -24px oklch(0 0 0 / 0.7);
+  --steel: oklch(0.50 0.11 246);
+  --steel-soft: oklch(0.54 0.11 249 / 0.12);
+  --chart-1: oklch(0.54 0.11 249);
+  --chart-2: oklch(0.44 0.02 255);
+  --chart-3: oklch(0.62 0.06 250);
+  --chart-4: oklch(0.75 0.04 250);
+  --chart-5: oklch(0.86 0.01 250);
+  --sidebar: oklch(0.945 0.005 250);
+  --sidebar-foreground: oklch(0.24 0.015 255);
+  --sidebar-primary: oklch(0.54 0.11 249);
+  --sidebar-primary-foreground: oklch(0.99 0.002 250);
+  --sidebar-accent: oklch(0.92 0.035 250);
+  --sidebar-accent-foreground: oklch(0.30 0.06 250);
+  --sidebar-border: oklch(0.855 0.008 250);
+  --sidebar-ring: oklch(0.54 0.11 249);
+  /* Headline metal: graphite with a steel sheen band through the middle, so letters never match the page. */
+  --gradient-chrome: linear-gradient(180deg, oklch(0.30 0.02 255) 0%, oklch(0.44 0.05 250) 42%, oklch(0.56 0.11 249) 58%, oklch(0.24 0.015 255) 100%);
+  --gradient-button: linear-gradient(180deg, oklch(0.62 0.10 249) 0%, oklch(0.54 0.11 249) 55%, oklch(0.45 0.11 246) 100%);
+  --gradient-fade: linear-gradient(180deg, oklch(0.97 0.003 250 / 0.30) 0%, oklch(0.97 0.003 250 / 0.68) 55%, oklch(0.968 0.002 250) 100%);
+  --gradient-side: linear-gradient(90deg, oklch(0.97 0.003 250 / 0.88) 0%, oklch(0.97 0.003 250 / 0.40) 55%, transparent 100%);
+  --shadow-card: 0 1px 0 oklch(1 0 0 / 0.7) inset, 0 16px 34px -24px oklch(0.32 0.03 255 / 0.45);
 }
 
 @layer base {
@@ -142,7 +144,7 @@
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.05; }
   ::selection { background: var(--steel); color: var(--primary-foreground); }
   :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 2px; }
-  input::placeholder, textarea::placeholder { color: oklch(0.62 0.012 260); }
+  input::placeholder, textarea::placeholder { color: oklch(0.56 0.014 250); }
 }
 
 @utility text-chrome {
@@ -178,17 +180,17 @@
   min-height: 3rem; padding: 0.85rem 1.6rem; font-family: var(--font-display); font-weight: 700;
   font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
   background: var(--gradient-button); color: var(--primary-foreground);
-  border-radius: var(--radius); box-shadow: 0 0 0 1px oklch(1 0 0 / 0.25) inset, 0 10px 24px -12px var(--steel);
+  border-radius: var(--radius); box-shadow: 0 0 0 1px oklch(1 0 0 / 0.22) inset, 0 12px 26px -14px oklch(0.42 0.11 246 / 0.7);
   transition: filter .2s, transform .2s, box-shadow .2s;
-  &:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 0 0 1px oklch(1 0 0 / 0.35) inset, 0 14px 30px -10px var(--steel); }
+  &:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 0 0 1px oklch(1 0 0 / 0.3) inset, 0 16px 30px -12px oklch(0.42 0.11 246 / 0.8); }
 }
 
 @utility btn-line {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   min-height: 3rem; padding: 0.85rem 1.6rem; font-family: var(--font-display); font-weight: 700;
   font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
-  border: 1px solid oklch(0.97 0.003 260 / 0.45); color: var(--foreground); border-radius: var(--radius);
-  background: oklch(0.17 0.008 260 / 0.4);
+  border: 1px solid oklch(0.30 0.02 255 / 0.26); color: var(--foreground); border-radius: var(--radius);
+  background: oklch(1 0 0 / 0.6);
   transition: border-color .2s, background .2s, color .2s;
   &:hover { border-color: var(--steel); background: var(--steel-soft); color: var(--foreground); }
 }
@@ -196,7 +198,7 @@
 @utility link-steel {
   color: var(--steel);
   text-decoration: underline;
-  text-decoration-color: oklch(0.78 0.11 240 / 0.4);
+  text-decoration-color: oklch(0.54 0.11 249 / 0.45);
   text-underline-offset: 4px;
   transition: text-decoration-color .2s, color .2s;
   &:hover { color: var(--foreground); text-decoration-color: var(--foreground); }
