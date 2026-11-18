@@ -36,3 +36,4 @@ use the editor.
 - Every route declares staticData.sitemap; /sitemap.xml is derived from the router (src/lib/sitemap.ts) plus published blog posts, so new pages need only that flag.
 - Brand images (logo, covers) are bundled imports from src/assets, not lovable-assets CDN pointers — the site is also served from hosting outside Lovable, where /__l5e/ asset URLs 404.
 - Interactive cues (links, active nav, focus rings, labels) use the single `steel` token in src/styles.css; chrome gradients stay for headlines and primary buttons — one accent keeps navigation obvious without diluting the brand.
+- The site is light-mode by default (html carries no `dark` class; every colour token is defined once in `:root` of src/styles.css). Brand imagery is theme-specific: the chrome logo and the hero photo each have a light-ground variant that routes import, because a light chrome mark disappears on an off-white page.
