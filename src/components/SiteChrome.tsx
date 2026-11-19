@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/74-studio-logo-dark.webp";
 import { NAV, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
+import { DiscordLink } from "@/components/DiscordButton";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -106,7 +107,10 @@ export function ClosingCta({ title, cta }: { title: string; cta: string }) {
     <section className="border-t border-border">
       <div className="mx-auto max-w-7xl px-5 py-24 text-center md:py-32">
         <h2 className="mx-auto max-w-4xl text-4xl font-bold uppercase leading-tight md:text-6xl"><span className="text-chrome">{title}</span></h2>
-        <Link to="/contact" className="btn-chrome mt-10">{cta}</Link>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Link to="/contact" className="btn-chrome">{cta}</Link>
+          <DiscordLink label="Chat with us on Discord" />
+        </div>
       </div>
     </section>
   );

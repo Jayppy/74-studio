@@ -65,6 +65,8 @@
   --color-chrome: var(--chrome);
   --color-steel: var(--steel);
   --color-steel-soft: var(--steel-soft);
+  --color-discord: var(--discord);
+  --color-discord-foreground: var(--discord-foreground);
   --font-display: "Space Grotesk", sans-serif;
   --font-sans: "Manrope", sans-serif;
   --color-sidebar: var(--sidebar);
@@ -106,6 +108,9 @@
   /* Steel blue pulled from the logo's highlights: the one colour used for links, active nav, focus and labels. */
   --steel: oklch(0.50 0.11 246);
   --steel-soft: oklch(0.54 0.11 249 / 0.12);
+  /* Discord brand blurple, only for buttons that open the Discord server. */
+  --discord: oklch(0.55 0.2 277);
+  --discord-foreground: oklch(0.99 0 0);
   --chart-1: oklch(0.54 0.11 249);
   --chart-2: oklch(0.44 0.02 255);
   --chart-3: oklch(0.62 0.06 250);
@@ -202,4 +207,14 @@
   text-underline-offset: 4px;
   transition: text-decoration-color .2s, color .2s;
   &:hover { color: var(--foreground); text-decoration-color: var(--foreground); }
+}
+
+@utility btn-discord {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 3rem; padding: 0.85rem 1.4rem; font-family: var(--font-display); font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--discord); color: var(--discord-foreground); border-radius: var(--radius);
+  box-shadow: 0 12px 26px -14px oklch(0.45 0.2 277 / 0.8);
+  transition: filter .2s, transform .2s;
+  &:hover { filter: brightness(1.08); transform: translateY(-1px); }
 }

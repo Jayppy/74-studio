@@ -3,6 +3,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { PageHero } from "@/components/SiteChrome";
+import { DiscordLink } from "@/components/DiscordButton";
 import { supabase } from "@/integrations/supabase/client";
 import { pageHead, SERVICES, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
@@ -77,6 +78,11 @@ function Contact() {
           <div className="rounded-lg border border-steel/50 bg-card p-10 shadow-card">
             <h2 className="text-3xl font-bold uppercase">Thank you.</h2>
             <p className="mt-4 text-muted-foreground">Your inquiry has been received. We review every project personally and will reply to the email you provided.</p>
+            <div className="mt-8 rounded-md border border-border bg-background p-6">
+              <p className="font-display text-lg font-semibold uppercase">Want a quicker response?</p>
+              <p className="mt-2 text-muted-foreground">Chat with our team on Discord to talk through your project in real time.</p>
+              <DiscordLink className="mt-5" />
+            </div>
             <button className="btn-line mt-8" onClick={() => setSent(false)}>Send another inquiry</button>
           </div>
         ) : (

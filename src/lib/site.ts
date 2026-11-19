@@ -4,12 +4,15 @@ export const STUDIO_EMAIL = "inquire@74-studio.com";
 export const SITE_URL = "https://www.74-studio.com";
 export const SITE_NAME = "74 Studio";
 
+/** Discord server where visitors chat with the team about their projects. */
+export const DISCORD_URL = "https://discord.gg/XDCjD8Xu6V";
+
 export const SOCIALS = [
   { label: "YouTube", href: "https://youtube.com/@prodby74" },
   { label: "Instagram", href: "https://www.instagram.com/prod.by.74" },
   { label: "X (Twitter)", href: "https://x.com/prodby74" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/prodby74" },
-  { label: "Discord", href: "https://discord.gg/EaAaSaGe" },
+  { label: "Discord", href: DISCORD_URL },
 ] as const;
 
 export const NAV = [

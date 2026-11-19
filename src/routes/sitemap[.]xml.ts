@@ -15,20 +15,8 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         const routeId = "/blog/$slug";
         if (isSitemapRouteIncluded(router.routesById[routeId])) {
-          const { createClient } = await import("@supabase/supabase-js");
-          const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
-          const supabase = createClient(process.env["SUPABASE_URL"]!, key, {
-            auth: { persistSession: false, autoRefreshToken: false },
-            global: {
-              fetch: (input, init) => {
-                const headers = new Headers(init?.headers);
-                // Opaque sb_ keys are not JWTs; send apikey without the default bearer.
-                if (key.startsWith("sb_") && headers.get("Authorization") === "Bearer " + key) headers.delete("Authorization");
-                headers.set("apikey", key);
-                return fetch(input, { ...init, headers });
-              },
-            },
-          });
+          const { publicSupabase } = await import("@/lib/public-supabase");
+          const supabase = publicSupabase();
           const pageSize = 1000;
           for (let offset = 0; ; ) {
             const { data, error } = await supabase
