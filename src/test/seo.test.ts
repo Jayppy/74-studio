@@ -9,12 +9,12 @@ import { sitemapStaticPaths, sitemapXML } from "@/lib/sitemap";
 const router = () => createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 
 describe("SEO rules", () => {
-  it("canonical URLs use the preferred www.74-studio.com domain", () => {
-    expect(canonicalUrl("/")).toBe("https://www.74-studio.com/");
-    expect(canonicalUrl("/music-videos")).toBe("https://www.74-studio.com/music-videos");
+  it("canonical URLs use the preferred non-www 74-studio.com domain", () => {
+    expect(canonicalUrl("/")).toBe("https://74-studio.com/");
+    expect(canonicalUrl("/music-videos")).toBe("https://74-studio.com/music-videos");
     const head = pageHead("T", "D", "/about");
-    expect(head.links).toEqual([{ rel: "canonical", href: "https://www.74-studio.com/about" }]);
-    expect(head.meta).toContainEqual({ property: "og:url", content: "https://www.74-studio.com/about" });
+    expect(head.links).toEqual([{ rel: "canonical", href: "https://74-studio.com/about" }]);
+    expect(head.meta).toContainEqual({ property: "og:url", content: "https://74-studio.com/about" });
   });
 
   it("sitemap lists every public page and no private ones", () => {
@@ -26,9 +26,18 @@ describe("SEO rules", () => {
     expect(paths).not.toContain("/auth");
   });
 
-  it("sitemap URLs are absolute https www URLs", () => {
-    const xml = sitemapXML("https://www.74-studio.com/", [{ path: "/" }, { path: "/portfolio" }]);
-    expect(xml).toContain("<loc>https://www.74-studio.com/</loc>");
-    expect(xml).toContain("<loc>https://www.74-studio.com/portfolio</loc>");
+  it("sitemap URLs are absolute https non-www URLs", () => {
+    const xml = sitemapXML("https://74-studio.com/", [{ path: "/" }, { path: "/portfolio" }]);
+    expect(xml).toContain("<loc>https://74-studio.com/</loc>");
+    expect(xml).toContain("<loc>https://74-studio.com/portfolio</loc>");
+  });
+});
+
+describe("preferred domain", () => {
+  it("homepage canonical is https://74-studio.com/ with no www anywhere", () => {
+    const head = pageHead("T", "D", "/");
+    expect(head.links).toEqual([{ rel: "canonical", href: "https://74-studio.com/" }]);
+    expect(head.meta).toContainEqual({ property: "og:url", content: "https://74-studio.com/" });
+    expect(JSON.stringify(head)).not.toContain("www.");
   });
 });

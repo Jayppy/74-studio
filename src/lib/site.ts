@@ -1,7 +1,7 @@
 export const STUDIO_EMAIL = "inquire@74-studio.com";
 
 /** Preferred public origin. Canonical tags, og:url, the sitemap and structured data all use it. */
-export const SITE_URL = "https://www.74-studio.com";
+export const SITE_URL = "https://74-studio.com";
 export const SITE_NAME = "74 Studio";
 
 /** Discord server where visitors chat with the team about their projects. */
@@ -36,7 +36,7 @@ export const SERVICES = [
   "Custom Project",
 ] as const;
 
-/** Absolute canonical URL for a site path, always on the preferred www origin. */
+/** Absolute canonical URL for a site path, always on the preferred non-www origin (74-studio.com). */
 export function canonicalUrl(path: string) {
   const clean = path.startsWith("/") ? path : `/${path}`;
   return `${SITE_URL}${clean === "/" ? "/" : clean.replace(/\/+$/, "")}`;

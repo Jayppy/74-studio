@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.74-studio.com/sitemap.xml
+Sitemap: https://74-studio.com/sitemap.xml
