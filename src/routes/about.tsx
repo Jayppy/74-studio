@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "@/assets/74-studio-logo-dark.webp";
+import logo from "@/assets/74-studio-logo.webp";
 import { ClosingCta, PageHero } from "@/components/SiteChrome";
 import { pageHead } from "@/lib/site";
 

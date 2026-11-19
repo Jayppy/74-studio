@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero-chrome-light.jpg";
+import hero from "@/assets/hero-chrome.jpg";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ClosingCta } from "@/components/SiteChrome";
 import { homeSelectedWorks } from "@/lib/portfolio";
@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden">
-        <img src={hero} alt="Sculptural chrome forms in a bright, misty studio" width={1920} height={1088} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-90" />
+        <img src={hero} alt="Sculptural chrome forms lit in a dark studio" width={1920} height={1088} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70" />
         <div className="bg-fade absolute inset-0 -z-10" />
         <div className="bg-side-fade absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 pb-20">

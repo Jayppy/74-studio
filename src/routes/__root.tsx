@@ -16,7 +16,7 @@ import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { FloatingDiscord } from "@/components/DiscordButton";
 import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/74-studio-logo-dark.webp";
+import logo from "@/assets/74-studio-logo.webp";
 import { SITE_NAME, SITE_URL, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 
 // Sitewide structured data: only facts shown on the site (name, URL, logo, email, social profiles).
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "74 Studio | Music Videos & Creative Production" },
       { name: "description", content: "Independent creative studio producing music videos, animation and video editing." },
       { name: "author", content: "74 STUDIO" },
-      { name: "theme-color", content: "#f4f5f7" },
+      { name: "theme-color", content: "#2a3440" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:locale", content: "en_US" },

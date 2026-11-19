@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/74-studio-logo-dark.webp";
+import logo from "@/assets/74-studio-logo.webp";
 import { NAV, SOCIALS, STUDIO_EMAIL } from "@/lib/site";
 import { DiscordLink } from "@/components/DiscordButton";
 
@@ -11,7 +11,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5">
         <Link to="/" aria-label="74 STUDIO home" className="shrink-0">
-          <img src={logo} alt="74 STUDIO logo" width={1200} height={400} decoding="async" className="h-11 w-auto md:h-12" />
+          <img src={logo} alt="74 STUDIO logo" width={1200} height={400} decoding="async" className="h-12 w-auto md:h-14" />
         </Link>
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
           {NAV.map((n) => (
