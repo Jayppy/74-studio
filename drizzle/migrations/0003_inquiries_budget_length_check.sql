@@ -1,0 +1,1 @@
+ALTER TABLE public.inquiries ADD CONSTRAINT inquiries_budget_length CHECK (budget IS NULL OR length(budget) <= 120);

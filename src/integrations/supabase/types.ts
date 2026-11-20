@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       inquiries: {
         Row: {
+          budget: string | null
           created_at: string
           deadline: string | null
           description: string
@@ -29,6 +30,7 @@ export type Database = {
           service: string
         }
         Insert: {
+          budget?: string | null
           created_at?: string
           deadline?: string | null
           description: string
@@ -42,6 +44,7 @@ export type Database = {
           service: string
         }
         Update: {
+          budget?: string | null
           created_at?: string
           deadline?: string | null
           description?: string

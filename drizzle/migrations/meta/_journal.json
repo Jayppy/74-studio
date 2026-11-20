@@ -15,6 +15,20 @@
       "when": 1794613756853,
       "tag": "0001_drop_public_read_covers_policy",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795209238594,
+      "tag": "0002_add_budget_to_inquiries",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795209255786,
+      "tag": "0003_inquiries_budget_length_check",
+      "breakpoints": true
     }
   ]
 }

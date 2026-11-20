@@ -13,13 +13,14 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const schema = z.object({
+export const contactSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name").max(120),
   email: z.string().trim().email("Enter a valid email").max(255),
   project_name: z.string().trim().max(200).optional(),
   service: z.enum(SERVICES, { message: "Choose a service" }),
   deadline: z.string().trim().max(100).optional(),
   runtime: z.string().trim().max(100).optional(),
+  budget: z.string().trim().max(120, "Budget must be less than 120 characters").optional(),
   music_link: z.union([z.literal(""), z.string().trim().url("Enter a full link (https://...)").max(500)]).optional(),
   references_text: z.string().trim().max(2000).optional(),
   description: z.string().trim().min(10, "Tell us a bit more (at least 10 characters)").max(5000),
@@ -36,7 +37,7 @@ function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
     const raw = Object.fromEntries(new FormData(form)) as Record<string, string>;
-    const parsed = schema.safeParse(raw);
+    const parsed = contactSchema.safeParse(raw);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
       parsed.error.issues.forEach((i) => (errs[String(i.path[0])] = i.message));
@@ -53,6 +54,7 @@ function Contact() {
       project_name: parsed.data.project_name || null,
       deadline: parsed.data.deadline || null,
       runtime: parsed.data.runtime || null,
+      budget: parsed.data.budget || null,
       music_link: parsed.data.music_link || null,
       references_text: parsed.data.references_text || null,
     });
@@ -99,6 +101,7 @@ function Contact() {
             </F>
             <F name="deadline" label="Project deadline"><input name="deadline" type="date" className={field} /></F>
             <F name="runtime" label="Desired runtime"><input name="runtime" placeholder="e.g. 3:20" className={field} /></F>
+            <div className="sm:col-span-2"><F name="budget" label="Budget"><input name="budget" placeholder="e.g. $1,500, under $500, or open to offers" className={field} /></F></div>
             <div className="sm:col-span-2"><F name="music_link" label="Music link"><input name="music_link" placeholder="https://" className={field} /></F></div>
             <div className="sm:col-span-2"><F name="references_text" label="Creative references"><textarea name="references_text" rows={3} className={field} /></F></div>
             <div className="sm:col-span-2"><F name="description" label="Project description *"><textarea name="description" rows={6} className={field} /></F></div>
