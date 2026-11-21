@@ -81,6 +81,17 @@ function MusicVideos() {
         <ProjectGrid projects={PROJECTS.filter((p) => ["3D", "2D", "AI", "Lyric"].includes(p.category)).slice(0, 6)} />
       </section>
       <ClosingCta title="Have a concept in mind?" cta="Request a music video" />
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-5 py-20">
+          <p className="eyebrow">Your next release</p>
+          <h2 className="mt-3 text-3xl font-bold uppercase md:text-4xl">Beyond the music video.</h2>
+          <p className="mt-5 max-w-2xl text-lg text-muted-foreground">Pair your video with human-designed, non-AI cover artwork, or bring Cover Artwork, Music Video, and Short Promo Visualizer together in a complete single-release package.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link to="/album-cover-artwork" className="btn-line">Album Cover Artwork</Link>
+            <Link to="/single-release-promo" className="btn-line">Explore the release package</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

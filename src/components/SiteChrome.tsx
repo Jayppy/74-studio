@@ -68,6 +68,8 @@ export function SiteFooter() {
             <li><Link to="/music-videos" className="text-foreground/75 transition hover:text-steel">Lyric Videos</Link></li>
             <li><Link to="/video-editing" className="text-foreground/75 transition hover:text-steel">Video Editing</Link></li>
             <li><Link to="/ugc-ads" className="text-foreground/75 transition hover:text-steel">UGC & Product Ads</Link></li>
+            <li><Link to="/album-cover-artwork" className="text-foreground/75 transition hover:text-steel">Album Cover Artwork · Human-Designed</Link></li>
+            <li><Link to="/single-release-promo" className="text-foreground/75 transition hover:text-steel">Complete Single Release Promo Content</Link></li>
           </ul>
         </div>
         <div>

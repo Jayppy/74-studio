@@ -12,10 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AlbumCoverArtworkRouteImport } from './routes/album-cover-artwork'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MusicVideosRouteImport } from './routes/music-videos'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as SingleReleasePromoRouteImport } from './routes/single-release-promo'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UgcAdsRouteImport } from './routes/ugc-ads'
 import { Route as VideoEditingRouteImport } from './routes/video-editing'
@@ -37,6 +39,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlbumCoverArtworkRoute = AlbumCoverArtworkRouteImport.update({
+  id: '/album-cover-artwork',
+  path: '/album-cover-artwork',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
@@ -55,6 +62,11 @@ const MusicVideosRoute = MusicVideosRouteImport.update({
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SingleReleasePromoRoute = SingleReleasePromoRouteImport.update({
+  id: '/single-release-promo',
+  path: '/single-release-promo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -91,10 +103,12 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/album-cover-artwork': typeof AlbumCoverArtworkRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/single-release-promo': typeof SingleReleasePromoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
@@ -105,10 +119,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/album-cover-artwork': typeof AlbumCoverArtworkRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/single-release-promo': typeof SingleReleasePromoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
@@ -121,10 +137,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/album-cover-artwork': typeof AlbumCoverArtworkRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/music-videos': typeof MusicVideosRoute
   '/portfolio': typeof PortfolioRoute
+  '/single-release-promo': typeof SingleReleasePromoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ugc-ads': typeof UgcAdsRoute
   '/video-editing': typeof VideoEditingRoute
@@ -137,10 +155,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/album-cover-artwork'
     | '/auth'
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/single-release-promo'
     | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
@@ -151,10 +171,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/album-cover-artwork'
     | '/auth'
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/single-release-promo'
     | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
@@ -166,10 +188,12 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
+    | '/album-cover-artwork'
     | '/auth'
     | '/contact'
     | '/music-videos'
     | '/portfolio'
+    | '/single-release-promo'
     | '/sitemap.xml'
     | '/ugc-ads'
     | '/video-editing'
@@ -182,10 +206,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AlbumCoverArtworkRoute: typeof AlbumCoverArtworkRoute
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
   MusicVideosRoute: typeof MusicVideosRoute
   PortfolioRoute: typeof PortfolioRoute
+  SingleReleasePromoRoute: typeof SingleReleasePromoRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UgcAdsRoute: typeof UgcAdsRoute
   VideoEditingRoute: typeof VideoEditingRoute
@@ -216,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/album-cover-artwork': {
+      id: '/album-cover-artwork'
+      path: '/album-cover-artwork'
+      fullPath: '/album-cover-artwork'
+      preLoaderRoute: typeof AlbumCoverArtworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -242,6 +275,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/single-release-promo': {
+      id: '/single-release-promo'
+      path: '/single-release-promo'
+      fullPath: '/single-release-promo'
+      preLoaderRoute: typeof SingleReleasePromoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -304,10 +344,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AlbumCoverArtworkRoute: AlbumCoverArtworkRoute,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
   MusicVideosRoute: MusicVideosRoute,
   PortfolioRoute: PortfolioRoute,
+  SingleReleasePromoRoute: SingleReleasePromoRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UgcAdsRoute: UgcAdsRoute,
   VideoEditingRoute: VideoEditingRoute,

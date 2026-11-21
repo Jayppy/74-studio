@@ -33,6 +33,8 @@ export const SERVICES = [
   "Lyric Video",
   "Short-Form/Long-Form Editing",
   "UGC/Product Ads",
+  "Album Cover Artwork (Non-AI / Human-Designed)",
+  "Complete Single Release Promo Content (Cover Art + Music Video + Short Promo Visualizer)",
   "Custom Project",
 ] as const;
 

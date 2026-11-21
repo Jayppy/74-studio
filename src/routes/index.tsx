@@ -17,6 +17,8 @@ const services = [
   { n: "03", t: "3D Music Videos", d: "Cinematic 3D worlds and character-driven stories.", to: "/music-videos" },
   { n: "04", t: "Short-Form Video Editing", d: "Reels, TikToks, Shorts and teasers cut to captivate.", to: "/video-editing" },
   { n: "05", t: "UGC & Product Ads", d: "Creator-style ads and product demos for brands.", to: "/ugc-ads" },
+  { n: "06", t: "Album Cover Artwork", d: "Original album and single artwork. 100% human-designed, never AI-generated.", to: "/album-cover-artwork" },
+  { n: "07", t: "Complete Single Release Promo Content", d: "Cover Artwork + Music Video + Short Promo Visualizer. One cohesive visual identity for your release.", to: "/single-release-promo" },
 ] as const;
 
 function Home() {

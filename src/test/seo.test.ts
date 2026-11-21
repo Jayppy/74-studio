@@ -20,7 +20,7 @@ describe("SEO rules", () => {
   it("sitemap lists every public page and no private ones", () => {
     const paths = sitemapStaticPaths(router());
     expect(paths).toEqual(
-      ["/", "/about", "/blog", "/contact", "/music-videos", "/portfolio", "/ugc-ads", "/video-editing"].sort(),
+       ["/", "/about", "/album-cover-artwork", "/blog", "/contact", "/music-videos", "/portfolio", "/single-release-promo", "/ugc-ads", "/video-editing"].sort(),
     );
     expect(paths).not.toContain("/admin");
     expect(paths).not.toContain("/auth");
